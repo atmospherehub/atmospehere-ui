@@ -1,6 +1,6 @@
 import { AtmospherePage } from './app.po';
 
-describe('Atmosphere App', function() {
+describe('atmosphere App', () => {
   let page: AtmospherePage;
 
   beforeEach(() => {
