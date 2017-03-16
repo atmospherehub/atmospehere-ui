@@ -20,10 +20,16 @@ import { IdentityActivateService } from './identity/identity-activate.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
     MaterialModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' }, //TODO: what is pathMatch? 
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
+    ], { useHash: false }),
+    LoginModule
+
   ],
-  providers: [],
+  providers: [FacebookService, IdentityService, IdentityActivateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
