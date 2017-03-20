@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core'
-import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router'
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { FacebookService, FacebookLoginResponse, FacebookAuthResponse, FacebookInitParams } from 'ng2-facebook-sdk';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class IdentityService {
 
     constructor(private _router: Router, private fb: FacebookService) {
         let fbParams: FacebookInitParams = {
-            appId: '191703407989431',//192324031260702 
+            appId: '191703407989431', // 192324031260702
             xfbml: true,
             version: 'v2.8'
         };
@@ -17,15 +17,15 @@ export class IdentityService {
     }
 
     getLoginStatus(): Promise<boolean> {
-        let access_token = localStorage.getItem("FB_ACCESS_TOKEN")
+        const access_token = localStorage.getItem('FB_ACCESS_TOKEN');
         return this.fb.getLoginStatus().then((res) => {
             if (res.status === 'connected' && access_token) {
-                return true
+                return true;
             }
             else {
-                return false
+                return false;
             }
-        })
+        });
     }
 
     loginUser(): Promise<boolean> {
@@ -35,22 +35,22 @@ export class IdentityService {
             scope: 'public_profile,user_friends,email,pages_show_list' // the scopes we want the user to authorize
         }).then(
             (response) => {
-                localStorage.setItem("FB_ACCESS_TOKEN", response.authResponse.accessToken)
-                return true
+                localStorage.setItem('FB_ACCESS_TOKEN', response.authResponse.accessToken);
+                return true;
             },
             (error: any) => console.error(error)
             );
     }
-    
+
     api(): Promise<any> {
-        let access_token = localStorage.getItem("FB_ACCESS_TOKEN")
-        var fields = 'last_name,first_name,picture'
+        const access_token = localStorage.getItem('FB_ACCESS_TOKEN');
+        const fields = 'last_name,first_name,picture';
         return this.fb.api('/me', 'get', { fields: fields, access_token: access_token }).then((res) => {
-            return res
-        })
+            return res;
+        });
     }
 
     logOut(): void {
-        localStorage.removeItem("FB_ACCESS_TOKEN")
+        localStorage.removeItem('FB_ACCESS_TOKEN');
     }
 }
