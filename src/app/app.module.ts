@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -14,6 +14,10 @@ import { IdentityService } from './identity/identity.service';
 import { IdentityActivateService } from './identity/identity-activate.service';
 import { WelcomeComponent } from 'app/welcome/welcome.component';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { DashboardModule } from './dashboard/dashboard.module';
+
+import { routing } from './app.routing';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +34,8 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
       { path: 'welcome', component: WelcomeComponent },
     ], { useHash: false }),
     LoginModule,
-    Ng2PageScrollModule.forRoot()
-
+    Ng2PageScrollModule.forRoot(),
+    DashboardModule
   ],
   providers: [FacebookService, IdentityService, IdentityActivateService],
   bootstrap: [AppComponent]
