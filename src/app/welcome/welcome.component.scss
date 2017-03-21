@@ -9,6 +9,11 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+.teammate-name {
+  @extend h3;
+
+}
+
 .heading-font {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
@@ -155,6 +160,7 @@ p {
     color: #fdcc52;
   }
 }
+
 header {
   position: relative;
   width: 100%;
@@ -162,11 +168,11 @@ header {
   overflow-y: hidden;
   background: url("/assets/bg-pattern.png"), #7b4397;
   /* fallback for old browsers */
-  background: url("/assets/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  background: url("/assets/bg-pattern.png"), -webkit-linear-gradient(to left, #555, #fff);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url("/assets/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  background: url("/assets/bg-pattern.png"), linear-gradient(to left, #555, #fff);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
+  color: #555;
 }
 header .header-content {
   text-align: center;
@@ -293,8 +299,8 @@ section.features .feature-item h3 {
 }
 section.features .feature-item i {
   font-size: 80px;
-  background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
-  background: linear-gradient(to left, #7b4397, #dc2430);
+  background: -webkit-linear-gradient(to left, #555, #fff);
+  background: linear-gradient(to left, #555, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
