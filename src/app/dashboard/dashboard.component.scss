@@ -1,0 +1,37 @@
+.toolbar {
+    .mini-spacer {
+        margin-left: 20px;
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .week-chart {
+        flex: 0 1 60%;
+        background: #0BDA51;
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .day-chart {
+        flex: 0 1 40%;
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}

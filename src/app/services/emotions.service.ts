@@ -12,23 +12,45 @@ export class EmotionsService {
 
     constructor (private http: Http) {}
 
-    getWeeklyAverage (): Observable<EmotionsStat[]> {
+    getCurrentAverage(): Observable<EmotionsStat> {
+        const datePipe = new DatePipe('en-US');
+
+        const today = new Date();
+        today.setDate(today.getDate());
+
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        return this.http
+            .get(`${this.API_BASE_URL}/timeseries?` +
+                 `from=${datePipe.transform(today, 'MM-dd-yyyy')}` +
+                 `&to=${datePipe.transform(tomorrow, 'MM-dd-yyyy')}&group=Day`)
+            .map(this.extractSingle.bind(this));
+    }
+
+    getWeeklyAverage(): Observable<EmotionsStat[]> {
         const datePipe = new DatePipe('en-US');
 
         const weekAgo = new Date();
-        weekAgo.setDate(weekAgo.getDate() - 8);
+        weekAgo.setDate(weekAgo.getDate() - 7);
 
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
+        const today = new Date();
+        today.setDate(today.getDate());
 
         return this.http
             .get(`${this.API_BASE_URL}/timeseries?` +
                  `from=${datePipe.transform(weekAgo, 'MM-dd-yyyy')}` +
-                 `&to=${datePipe.transform(yesterday, 'MM-dd-yyyy')}&group=Day`)
-            .map(this.extractData.bind(this));
+                 `&to=${datePipe.transform(today, 'MM-dd-yyyy')}&group=Day`)
+            .map(this.extractArray.bind(this));
     }
 
-    private extractData(res: Response): EmotionsStat[] {
+    private extractSingle(res: Response): EmotionsStat {
+        const responseObject = res.json();
+        const emotionStats = responseObject.map(this.toEmotionStats);
+        return emotionStats.length > 0 ? emotionStats[0] : new EmotionsStat();
+    }
+
+    private extractArray(res: Response): EmotionsStat[] {
         const responseObject = res.json();
         return responseObject.map(this.toEmotionStats);
     }

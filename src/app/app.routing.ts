@@ -1,18 +1,13 @@
+import { Routes, RouterModule } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { Routes, RouterModule } from '@angular/router';
-
 const appRoutes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
-    {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-    }
+    { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+    { path: 'welcome', component: WelcomeComponent },
+    { path: 'dashboard', component: DashboardComponent }
 ];
 
-export const appRoutingProviders: any[] = [
+export const appRoutingProviders: any[] = [];
 
-];
-
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, { useHash: false });

@@ -1,3 +1,11 @@
-<chart 
-    [options]="options"
-    (load)="saveInstance($event.context)"></chart>
+<md-toolbar color="primary" class="toolbar">
+    <a (click)="navigateHome();"><button md-button><md-icon class="icon">home</md-icon></button></a>
+    <span class="mini-spacer"></span>
+    <span>Dashboard</span>
+    <span class="spacer"></span>
+</md-toolbar>
+
+<div class="dashboard-container">
+    <div class="week-chart" weekly-average-chart></div>
+    <div class="day-chart" daily-average-chart></div>
+</div>
