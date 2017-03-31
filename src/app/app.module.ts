@@ -14,7 +14,7 @@ import { IdentityService } from './identity/identity.service';
 import { IdentityActivateService } from './identity/identity-activate.service';
 import { WelcomeComponent } from 'app/welcome/welcome.component';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
-import { DashboardModule } from './dashboard/dashboard.module';
+// import { DashboardModule } from './dashboard/dashboard.module';
 
 import { routing } from './app.routing';
 
@@ -32,7 +32,7 @@ import { routing } from './app.routing';
     routing,
     LoginModule,
     Ng2PageScrollModule.forRoot(),
-    DashboardModule
+    // DashboardModule
   ],
   providers: [FacebookService, IdentityService, IdentityActivateService],
   bootstrap: [AppComponent]
