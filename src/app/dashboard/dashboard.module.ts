@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { ChartModule } from 'angular2-highcharts';
-// import * as Highcharts from 'highcharts';
+import { ChartModule } from 'angular2-highcharts';
+import * as Highcharts from 'highcharts';
 // import * as HighchartsMore from 'highcharts/highcharts-more';
 
 // require('highcharts/highcharts-more')(Highcharts);
