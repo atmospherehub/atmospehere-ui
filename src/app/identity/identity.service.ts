@@ -8,8 +8,8 @@ export class IdentityService {
     private _accessToken: string;
 
     constructor(private _router: Router, private fb: FacebookService) {
-        let fbParams: FacebookInitParams = {
-            appId: '191703407989431', // 192324031260702
+        const fbParams: FacebookInitParams = {
+            appId: '456894917976275', ////'191703407989431', // 192324031260702
             xfbml: true,
             version: 'v2.8'
         };
