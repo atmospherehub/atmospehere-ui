@@ -8,7 +8,7 @@ import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class EmotionsService {
-    API_BASE_URL = 'https://dm-atmosphere-func.azurewebsites.net/';
+    API_BASE_URL = 'https://api.atmospherehub.com/';
 
     constructor (private http: Http) {}
 
