@@ -20,7 +20,6 @@ export function highchartsFactory() {
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     ChartModule,
     MaterialModule
   ],
