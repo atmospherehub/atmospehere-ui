@@ -111,7 +111,7 @@ echo DEPLOYMENT_TARGET: %DEPLOYMENT_TARGET%
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd "!NODE_EXE!" "%DEPLOYMENT_TARGET%"/node_modules/@angular/cli/bin/ng build --prod --env=prod --aot
-  call :ExecuteCmd "cp" "%DEPLOYMENT_TARGET%"/web.config "%DEPLOYMENT_TARGET%"/dist/
+  call :ExecuteCmd cp "%DEPLOYMENT_TARGET%"/web.config "%DEPLOYMENT_TARGET%"/dist/
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
